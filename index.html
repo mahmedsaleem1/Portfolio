@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My GitHub Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            height: 100%;
+            border-radius: 0.75rem;
+            overflow: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-pill {
+            transition: all 0.2s ease;
+        }
+        
+        .skill-pill:hover {
+            transform: scale(1.05);
+            background-color: #2563eb;
+            color: white;
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            border-color: #2563eb;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #2563eb;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <a href="#home" class="text-2xl font-bold gradient-text">
+                    DevPortfolio
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="#projects" class="nav-link text-gray-700 px-3 py-2 text-sm font-medium">Projects</a>
+                    <a href="#skills" class="nav-link text-gray-700 px-3 py-2 text-sm font-medium">Skills</a>
+                    <a href="#testimonials" class="nav-link text-gray-700 px-3 py-2 text-sm font-medium">Reviews</a>
+                    <a href="#contact" class="nav-link text-gray-700 px-3 py-2 text-sm font-medium">Contact</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white px-4">
+            <div class="flex flex-col space-y-2 pb-3">
+                <a href="#home" class="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100">Home</a>
+                <a href="#projects" class="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100">Projects</a>
+                <a href="#skills" class="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100">Skills</a>
+                <a href="#testimonials" class="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100">Reviews</a>
+                <a href="#contact" class="text-gray-700 px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-28 pb-16 px-6 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 order-2 md:order-1">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                        Hi, I'm <span class="gradient-text">[Your Name]</span>
+                    </h1>
+                    <h2 class="text-2xl text-gray-600 mb-6">Software Developer | GitHub Enthusiast</h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        I create robust, scalable web applications with modern technologies. 
+                        Passionate about open source contributions and clean code architecture.
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <a href="#projects" class="bg-blue-600 text-white px-5 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                            View My Work
+                        </a>
+                        <a href="https://github.com/[YourUsername]" target="_blank" class="border border-gray-300 text-gray-700 px-5 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center">
+                            <i class="fab fa-github mr-2"></i> GitHub Profile
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 order-1 md:order-2 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl opacity-20 blur"></div>
+                        <img src="https://placehold.co/400x400" alt="Professional developer portrait" class="relative rounded-xl w-full max-w-md shadow-xl border-4 border-white">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-3">My GitHub Projects</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Here are some of my featured repositories and contributions
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white border border-gray-200 shadow-sm">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/600x400" alt="E-commerce dashboard with analytics charts and product management interface" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Shopify Dashboard</h3>
+                        <p class="text-gray-600 mb-4">
+                            Complete e-commerce dashboard with real-time analytics, inventory management, and order processing.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="skill-pill bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                                React
+                            </span>
+                            <span class="skill-pill bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                                Node.js
+                            </span>
+                            <span class="skill-pill bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                                MongoDB
+                            </span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                View Project
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white border border-gray-200 shadow-sm">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/600x400" alt="Social media analytics platform showing engagement metrics and growth charts" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Social Analytics</h3>
+                        <p class="text-gray-600 mb-4">
+                            Platform to track metrics across social networks with custom reporting and data visualization.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="skill-pill bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                                Vue.js
+                            </span>
+                            <span class="skill-pill bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                                Firebase
+                            </span>
+                            <span class="skill-pill bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                                D3.js
+                            </span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                View Project
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white border border-gray-200 shadow-sm">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://placehold.co/600x400" alt="AI-powered content moderation interface showing flagged posts and analysis" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Content Moderator AI</h3>
+                        <p class="text-gray-600 mb-4">
+                            Machine learning system for automatically detecting and flagging inappropriate content.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="skill-pill bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                                Python
+                            </span>
+                            <span class="skill-pill bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                                TensorFlow
+                            </span>
+                            <span class="skill-pill bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                                Flask
+                            </span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                                View Project
+                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-gray-700">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://github.com/[YourUsername]" target="_blank" class="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors">
+                    <i class="fab fa-github mr-2"></i> View All Projects on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-3">Technical Skills</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Technologies I work with regularly
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <!-- Skill 1 -->
+                <div class="skill-pill bg-white p-4 rounded-lg shadow-sm text-center border border-gray-200">
+                    <div class="flex justify-center mb-3">
+                        <img src="https://placehold.co/60x60" alt="JavaScript logo" class="h-14 w-14 object-contain">
+                    </div>
+                    <h3 class="font-medium text-gray-900">JavaScript</h3>
+                    <div class="flex justify-center mt-2">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 2 -->
+                <div class="skill-pill bg-white p-4 rounded-lg shadow-sm text-center border border-gray-200">
+                    <div class="flex justify-center mb-3">
+                        <img src="https://placehold.co/60x60" alt="React logo" class="h-14 w-14 object-contain">
+                    </div>
+                    <h3 class="font-medium text-gray-900">React</h3>
+                    <div class="flex justify-center mt-2">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 3 -->
+                <div class="skill-pill bg-white p-4 rounded-lg shadow-sm text-center border border-gray-200">
+                    <div class="flex justify-center mb-3">
+                        <img src="https://placehold.co/60x60" alt="Node.js logo" class="h-14 w-14 object-contain">
+                    </div>
+                    <h3 class="font-medium text-gray-900">Node.js</h3>
+                    <div class="flex justify-center mt-2">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 4 -->
+                <div class="skill-pill bg-white p-4 rounded-lg shadow-sm text-center border border-gray-200">
+                    <div class="flex justify-center mb-3">
+                        <img src="https://placehold.co/60x60" alt="Python logo" class="h-14 w-14 object-contain">
+                    </div>
+                    <h3 class="font-medium text-gray-900">Python</h3>
+                    <div class="flex justify-center mt-2">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 5 -->
+                <div class="skill-pill bg-white p-4 rounded-lg shadow-sm text-center border border-gray-200">
+                    <div class="flex justify-center mb-3">
+                        <img src="https://placehold.co/60x60" alt="Git logo" class="h-14 w-14 object-contain">
+                    </div>
+                    <h3 class="font-medium text-gray-900">Git</h3>
+                    <div class="flex justify-center mt-2">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 6 -->
+                <div class="skill-pill bg-white p-4 rounded-lg shadow-sm text-center border border-gray-200">
+                    <div class="flex justify-center mb-3">
+                        <img src="https://placehold.co/60x60" alt="Docker logo" class="h-14 w-14 object-contain">
+                    </div>
+                    <h3 class="font-medium text-gray-900">Docker</h3>
+                    <div class="flex justify-center mt-2">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 7 -->
+                <div class="skill-pill bg-white p-4 rounded-lg shadow-sm text-center border border-gray-200">
+                    <div class="flex justify-center mb-3">
+                        <img src="https://placehold.co/60x60" alt="MongoDB logo" class="h-14 w-14 object-contain">
+                    </div>
+                    <h3 class="font-medium text-gray-900">MongoDB</h3>
+                    <div class="flex justify-center mt-2">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 8 -->
+                <div class="skill-pill bg-white p-4 rounded-lg shadow-sm text-center border border-gray-200">
+                    <div class="flex justify-center mb-3">
+                        <img src="https://placehold.co/60x60" alt="AWS logo" class="h-14 w-14 object-contain">
+                    </div>
+                    <h3 class="font-medium text-gray-900">AWS</h3>
+                    <div class="flex justify-center mt-2">
+                        <div class="w-full bg-gray-200 rounded-full h-2.5">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-3">Client & Peer Reviews</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    What people say about working with me
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-blue-500">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60" alt="Portrait of satisfied client" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h3 class="font-semibold text-gray-900">Sarah Johnson</h3>
+                            <p class="text-sm text-gray-500">CTO at TechSolutions</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-700">
+                        <p>
+                            "Exceptional work on our e-commerce platform. [Your Name] delivered complex features ahead of schedule while maintaining excellent code quality. Would definitely work with them again."
+                        </p>
+                    </div>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-blue-500">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60" alt="Portrait of team lead" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h3 class="font-semibold text-gray-900">Michael Chen</h3>
+                            <p class="text-sm text-gray-500">Lead Developer at CodeCraft</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-700">
+                        <p>
+                            "[Your Name] is an outstanding collaborator. Their detailed code reviews and thorough testing approach significantly improved our codebase reliability. A true asset to any team."
+                        </p>
+                    </div>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-blue-500">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60" alt="Portrait of project manager" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h3 class="font-semibold text-gray-900">Emily Rodriguez</h3>
+                            <p class="text-sm text-gray-500">Product Manager at DigitalFlow</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-700">
+                        <p>
+                            "Incredible problem-solving skills and attention to detail. [Your Name] took our vague requirements and turned them into a beautiful, functional product that exceeded expectations."
+                        </p>
+                    </div>
+                    <div class="mt-4 flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-6 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-3">Get In Touch</h2>
+                <p class="text-xl text-gray-600 max-w-lg mx-auto">
+                    Interested in working together? Let's connect!
+                </p>
+            </div>
+            
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                        <input type="text" id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <div class="flex justify-center space-x-6">
+                    <a href="https://github.com/[YourUsername]" target="_blank" class="text-gray-700 hover:text-gray-900">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-blue-400">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-700 hover:text-red-600">
+                        <i class="fab fa-youtube text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 gradient-text">DevPortfolio</h3>
+                    <p class="text-gray-400">
+                        Showcasing my projects, skills, and experience as a professional developer.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#skills" class="text-gray-400 hover:text-white transition-colors">Skills</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Reviews</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/[YourUsername]" target="_blank" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-red-500">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-400">
+                            <i class="fas fa-envelope mr-2"></i> your.email@example.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; <span id="current-year"></span> My Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.remove('open');
+            });
+        });
+        
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Form submission handler
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple form validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (name === '' || email === '' || message === '') {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // In a real application, you would send this data to a server
+            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
